@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Auth from './lib/auth'
-// import SideNav from './components/SideNav'
-// import Main from './components/Main'
-
-
 import Home from './components2.0/commonComponents/Home'
-import About from './components2.0/About'
+
 //culture
 import CultureFilms from './components2.0/culture/cultureFilms'
 import CultureSingleFilms from './components2.0/culture/cultureSingleFilms'
@@ -30,10 +25,10 @@ import CurrentSingle from './components2.0/current/currentSingle'
 import SingleClothing from './components2.0/clothing/Show'
 import RegisterUser from './components2.0/user/RegisterUser'
 import LoginUser from './components2.0/user/LogingUser'
-// import Home from './components2.0/commonComponents/Home'
 
 import BottomNav from './components2.0/commonComponents/BottomNav' 
-import './style.css'
+
+import 'tachyons'
 
 
 const App = () => {
@@ -60,7 +55,6 @@ const App = () => {
       <Route path="/culture-books" component={CultureBooks} />
       <Route path="/culture-music/:id" component={CultureSingleMusic} />
       <Route path="/culture-music" component={CultureMusic} />
-      <Route path="/about" component={About} />
       <Route path="/register" component={RegisterUser} />
       <Route path="/login" component={LoginUser} />
     </Switch>

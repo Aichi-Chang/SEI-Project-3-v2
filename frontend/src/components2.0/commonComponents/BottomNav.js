@@ -1,42 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Auth from '../../lib/auth'
 
-const BottomNav = () => (
-    <div>
-    <Link to={'/'} className='avenir' >Home</Link>
-    <Link className='black-link' to={'/about'}>About</Link>
-            <Link to={'/clothing'}>Clothing</Link>
+const BottomNav = (props) => {
+  // if I moved state, then handleLogout doesn't work...???
+  const [data, setData] = useState({
+    userLogin: 'true'
+  })
 
-            <Link to={'/communities'}>Community</Link>
-            <Link to={'/currents'}>Current</Link>
-            <a>
-          Culture
-            </a>
+  function handleLogout(e) {
+    e.preventDefault()
+    Auth.logOut()
+    setData({ ...data, userLogin: 'false' })
+    // props.history.push('/')
+  }
 
-              <Link to={'/culture-books'}>
-            Books
-              </Link>
-              <Link to={'/culture-films'}>
-            Films
-              </Link>
-              <Link to={'/culture-music'}>
-            Music
-              </Link>      
+  console.log(data)
+  
+  
+  return <div className='fixed z-1 garamond flex w-100'>
 
+    <div className='flex fixed left-0'>
+      <Link to={'/'} className='gray pa3 mr2'>Home</Link>
+      <Link to={'/clothing'} className='gray pa3 mr2'>Clothing</Link>
+      <Link to={'/communities'} className='gray pa3 mr2'>Community</Link>
+      <Link to={'/currents'} className='gray pa3 mr2'>Current</Link>
+      
+      <div className='gray pa3 pointer'>
+        Culture
+        <Link to={'/culture-books'} className='black'>
+        Books
+        </Link>
+        <Link to={'/culture-films'} className='black'>
+          Films
+        </Link>
+        <Link to={'/culture-music'} className='black'>
+          Music
+        </Link>  
+      </div>
+    </div>     
 
+    <div className='flex fixed right-0'>
 
-              <Link to={'/register'}>
-                <strong>Sign up</strong>
-              </Link>
-              <Link to={'/login'}>
-            Log in
-              </Link>
-              <Link to={'/login'}>
-            Log out
-              </Link>
+      <Link to={'/register'} className='gray pa3'>
+        { Auth.isAuthenticated() ? '' : <strong>Sign up</strong> }
+      </Link>
 
+      <Link to={'/login'} className='gray pa3'>
+        { Auth.isAuthenticated() ? '' : 'Log in' }
+      </Link>
+
+      <a className='gray pa3 mr3' onClick={(e)=>handleLogout(e)}>
+        { Auth.isAuthenticated() ? 'Log out' : '' }
+      </a>
+
+    </div>
   </div>
-)
+}
+
 
 
 export default BottomNav

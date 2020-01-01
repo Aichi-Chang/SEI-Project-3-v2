@@ -8,7 +8,6 @@ const UseAxios = (url, initialState = []) => {
   useEffect(() => {
     axios.get(url)
       .then(res => setData(res.data))
-    return () => console.log('Route Changed')
   }, [])
   return data
   

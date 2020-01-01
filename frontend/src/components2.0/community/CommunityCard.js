@@ -9,7 +9,7 @@ import 'bulma'
 //   style: 'mapbox://styles/mapbox/streets-v11'
 // })
 
-const ClothingCard = ({ article }) => (
+const CommunityCard = ({ article }) => (
   <div className="singleImage column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
     <div className="card">
       <div className="card-image">
@@ -24,4 +24,4 @@ const ClothingCard = ({ article }) => (
     </div>
   </div>
 )
-export default ClothingCard
+export default CommunityCard

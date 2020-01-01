@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import 'bulma'
 
 
 
 const RegisterUser = (props) => {
   
-  // const history = useHistory()
 
   const [data, setData] = useState({
     username: '',
@@ -42,94 +39,82 @@ const RegisterUser = (props) => {
       //this will catch our error in the backend, and setError will save it in our front end
       // ...errors, if they were empty(no error). Keep them empty
       // and if there is any new errors, update them with ...err.errors
-      .catch(err =>setErrors({ ...errors, ...err.errors }))
+      .catch(err =>setErrors({ ...errors, ...err.error }))
   }
   
 
 
-  return <section className="section">
-    <div className="container">
-      <div className="titleOne">Register</div>
-      {/* Form to complete registration */}
-      <form className="form" onSubmit={(e) => handleSubmit(e)}>
-        {/* We use bulma field, label and control classes for nice forms */}
-        <div className="field">
-          <label htmlFor="" className="label">
-            Email
-          </label>
-          <div className="control">
-            <input
-              onChange={(e) => handleChange(e)}
-              type="text"
-              required={true}
-              name="email"
-              className="input"
-            />
-          </div>
-          {/* {this.state.errors.email && <small className="help is-danger">
-            {this.state.errors.email}
-          </small>} */}
-        </div>
-        <div className="field">
-          <label htmlFor="" className="label">
-            Username
-          </label>
-          <div className="control">
-            <input
-              onChange={(e) => handleChange(e)}
-              type="text"
-              required={true}
-              name="username"
-              className="input"
-            />
-          </div>
-          {/* {this.state.errors.username && <small className="help is-danger">
-            {this.state.errors.username}
-          </small>} */}
-        </div>
-        <div className="field">
-          <label htmlFor="" className="label">
-            Password
-          </label>
-          <div className="control">
-            <input
-              onChange={(e) => handleChange(e)}
-              type="text"
-              required={true}
-              name="password"
-              className="input"
-            />
-          </div>
-          {/* {this.state.errors.password && <small className="help is-danger">
-            {this.state.errors.password}
-          </small>} */}
-        </div>
-        <div className="field">
-          <label htmlFor="" className="label">
-            Confirm password
-          </label>
-          <div className="control">
-            <input
-              onChange={(e) => handleChange(e)}
-              type="text"
-              required={true}
-              name="passwordConfirmation"
-              className="input"
-            />
-          </div>
-          {/* {this.state.errors.passwordConfirmation && <small className="help is-danger">
-            {this.state.errors.passwordConfirmation}
-          </small>} */}
-        </div>
-        <button className='button is-dark'>
-          <strong>Complete Registration</strong>
+
+  return <div className="flex flex-column items-center justify-center bg-near-white vh-100">
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <div className="pa3 mr2 mt6">
+        <label>
+          Email
+        </label>
+        <input
+          onChange={(e) => handleChange(e)}
+          type="text"
+          // required={true}
+          name="email"
+          className="input"
+        />
+        {/* this is not working... */}
+        {/* {errors.email && <small className="red">
+          {errors.email}
+        </small>} */}
+      </div>
+
+      <div className="pa3 mr2">
+        <label>
+          Username
+        </label>
+        <input
+          onChange={(e) => handleChange(e)}
+          type="text"
+          required={true}
+          name="username"
+          className="input"
+        />
+      </div>
+
+      <div className="pa3 mr2">
+        <label>
+          Password
+        </label>
+        <input
+          onChange={(e) => handleChange(e)}
+          type="text"
+          required={true}
+          name="password"
+          className="input"
+        />
+      </div>
+
+      <div className="pa3 mr2">
+        <label className='grow:hover'>
+          Confirm password
+        </label>
+        <input
+          onChange={(e) => handleChange(e)}
+          type="text"
+          required={true}
+          name="passwordConfirmation"
+          className="input"
+        />
+      </div>
+
+      <div className="pa3 mr2 mt2 tc">
+        <button className="pointer pa2 washed-green bg-dark-gray grow br2 ">
+          Register
         </button>
-        <div>
-          <p>Already have an account?<a href={'/login'}> <strong>Click here to log in!</strong></a></p>
-        </div>
-      </form>
-    </div>
-  </section>
+      </div>
+      
+      <div className="pa3 mr2 mt5 f6 tc">
+        <p>Already have an account? <a href={'/login'} className='gray dim:hover b'>Click here to log in</a></p>
+      </div>
+    </form>
+  </div>
+
 }
 
 

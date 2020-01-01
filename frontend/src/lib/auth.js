@@ -20,6 +20,7 @@ class Auth {
     return JSON.parse(localStorage.getItem('user'))
   }
 
+
   static getPayload() {
     return jwt.decode(this.getToken())
   }
@@ -29,6 +30,12 @@ class Auth {
     // why do we need to know if we are logged in???
     const now = Math.round(Date.now() / 1000)
     return payload && now < payload.exp
+  }
+
+
+  static logOut() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
   }
 
 

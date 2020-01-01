@@ -26,17 +26,20 @@ const BottomNav = (props) => {
       <Link to={'/communities'} className='gray pa3 mr2'>Community</Link>
       <Link to={'/currents'} className='gray pa3 mr2'>Current</Link>
       
-      <div className='gray pa3 pointer'>
+      <div className='gray pa3 pointer hide-child'>
         Culture
-        <Link to={'/culture-books'} className='black'>
-        Books
-        </Link>
-        <Link to={'/culture-films'} className='black'>
-          Films
-        </Link>
-        <Link to={'/culture-music'} className='black'>
-          Music
-        </Link>  
+        <div className='child flex flex-column'>
+          <Link to={'/culture-books'} className='gray pt2'>
+            Books
+          </Link>
+          <Link to={'/culture-films'} className='gray pt2'>
+            Films
+          </Link>
+          <Link to={'/culture-music'} className='gray pt2'>
+            Music
+          </Link>  
+        </div>
+        
       </div>
     </div>     
 

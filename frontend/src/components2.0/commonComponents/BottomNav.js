@@ -21,21 +21,21 @@ const BottomNav = (props) => {
   return <div className='fixed z-1 garamond flex w-100'>
 
     <div className='flex fixed left-0'>
-      <Link to={'/'} className='gray pa3 mr2'>Home</Link>
-      <Link to={'/clothing'} className='gray pa3 mr2'>Clothing</Link>
-      <Link to={'/communities'} className='gray pa3 mr2'>Community</Link>
-      <Link to={'/currents'} className='gray pa3 mr2'>Current</Link>
+      <Link to={'/'} className='grow gray pa3'>Home</Link>
+      <Link to={'/clothing'} className='grow gray pa3'>Clothing</Link>
+      <Link to={'/communities'} className='grow gray pa3'>Community</Link>
+      <Link to={'/currents'} className='grow gray pa3'>Current</Link>
       
-      <div className='gray pa3 pointer hide-child'>
-        Culture
+      <div className='grow gray pa3 pointer hide-child'>
+        Culture ▾
         <div className='child flex flex-column'>
-          <Link to={'/culture-books'} className='gray pt2'>
+          <Link to={'/culture-books'} className='grow gray pt2'>
             Books
           </Link>
-          <Link to={'/culture-films'} className='gray pt2'>
+          <Link to={'/culture-films'} className='grow gray pt2'>
             Films
           </Link>
-          <Link to={'/culture-music'} className='gray pt2'>
+          <Link to={'/culture-music'} className='grow gray pt2'>
             Music
           </Link>  
         </div>
@@ -45,15 +45,15 @@ const BottomNav = (props) => {
 
     <div className='flex fixed right-0'>
 
-      <Link to={'/register'} className='gray pa3'>
+      <Link to={'/register'} className='grow gray pa3'>
         { Auth.isAuthenticated() ? '' : <strong>Sign up</strong> }
       </Link>
 
-      <Link to={'/login'} className='gray pa3'>
+      <Link to={'/login'} className='grow gray pa3'>
         { Auth.isAuthenticated() ? '' : 'Log in' }
       </Link>
 
-      <a className='gray pa3 mr3' onClick={(e)=>handleLogout(e)}>
+      <a className='grow gray pa3 mr3' onClick={(e)=>handleLogout(e)}>
         { Auth.isAuthenticated() ? 'Log out' : '' }
       </a>
 

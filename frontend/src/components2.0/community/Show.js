@@ -44,7 +44,7 @@ const SingleCommunity = (props) => {
 
 
   
-  return <div className="section">
+  return <div className='flex'>
     <div className="container">
       <div className="columns is-multiline">
         <div className="column is-half-tablet">

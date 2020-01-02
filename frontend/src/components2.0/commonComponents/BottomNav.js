@@ -18,24 +18,24 @@ const BottomNav = (props) => {
   console.log(data)
   
   
-  return <div className='fixed z-1 garamond flex w-100'>
+  return <div className='z-1 garamond flex fixed w-100 justify-between bg-near-white'>
 
-    <div className='flex fixed left-0'>
-      <Link to={'/'} className='grow gray pa3'>Home</Link>
+    <div className='flex'>
+      <Link to={'/'} className='grow gray pa3 ml4'>Home</Link>
       <Link to={'/clothing'} className='grow gray pa3'>Clothing</Link>
       <Link to={'/communities'} className='grow gray pa3'>Community</Link>
       <Link to={'/currents'} className='grow gray pa3'>Current</Link>
       
-      <div className='grow gray pa3 pointer hide-child'>
-        Culture ▾
-        <div className='child flex flex-column'>
-          <Link to={'/culture-books'} className='grow gray pt2'>
+      <div className='grow gray pa3 pointer flex flex-wrap hide-child'>
+        Culture ▸ 
+        <div className='child'>
+          <Link to={'/culture-books'} className='gray pa3'>
             Books
           </Link>
-          <Link to={'/culture-films'} className='grow gray pt2'>
+          <Link to={'/culture-films'} className='gray pa3'>
             Films
           </Link>
-          <Link to={'/culture-music'} className='grow gray pt2'>
+          <Link to={'/culture-music'} className='gray pa3'>
             Music
           </Link>  
         </div>
@@ -43,7 +43,7 @@ const BottomNav = (props) => {
       </div>
     </div>     
 
-    <div className='flex fixed right-0'>
+    <div className='flex'>
 
       <Link to={'/register'} className='grow gray pa3'>
         { Auth.isAuthenticated() ? '' : <strong>Sign up</strong> }

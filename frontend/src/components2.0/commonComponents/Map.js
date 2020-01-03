@@ -13,11 +13,11 @@ class Map extends React.Component {
     super(props)
     this.state = {
       viewport: {
-        width: 800,
-        height: 500,
+        width: 570,
+        height: 300,
         latitude: 51.5074,
         longitude: 0.1278,
-        zoom: 10,
+        zoom: 13,
         bearing: 0,
         pitch: 0
       },
@@ -26,9 +26,8 @@ class Map extends React.Component {
   }
 
 
+
   _updateViewport = viewport => {
-    // console.log(this.props.data.lng)
-    // console.log(this.props.data.lat)
     this.setState({ viewport })
   }
 
@@ -38,9 +37,10 @@ class Map extends React.Component {
     return (
       <Marker longitude={data.lng} latitude={data.lat}>
         <img src='https://i.imgur.com/P1REhj4.png' 
-          height="50" 
-          width="50"
+          height="25" 
+          width="25"
           onClick={() => this.setState({ info: this.props.data })}
+          className='pointer grow dim'
         />
       </Marker> 
     )
@@ -69,11 +69,12 @@ class Map extends React.Component {
 
   render() {
     if (!this.props.data.lng && !this.props.data.lat) return null
-    // console.log(this.state.viewport)
 
-    return <div>
+    return <div className='mb5 w-50-l'>
       <MapGL
         { ...this.state.viewport }
+        latitude={this.props.data.lat} 
+        longitude={this.props.data.lng} 
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onViewportChange={this._updateViewport}
         mapboxApiAccessToken={Token}

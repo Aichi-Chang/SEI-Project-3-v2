@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 
-const BottomNav = (props) => {
+const BottomNav = () => {
   // if I moved state, then handleLogout doesn't work...???
   const [data, setData] = useState({
     userLogin: 'true'

@@ -5,9 +5,9 @@ const MapInfo = ({ info }) => (
   <div>
     <div>{info.title}</div>
     <div>{info.address}</div>
-    <img width={240} src={info.image} />
+    {/* <img width={240} src={info.image} /> */}
     <div>
-      <a href={info.website} target='_blank'>More Info</a>
+      <a href={info.website} target='blank'>More Info</a>
     </div>
   </div>
 )

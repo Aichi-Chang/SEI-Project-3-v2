@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 import CommentForm from '../commonComponents/CommentForm'
-import Rating from '../commonComponents/Rating'
+// import Rating from '../commonComponents/Rating'
 
 
 const SingleClothing = (props) => {
@@ -42,7 +42,7 @@ const SingleClothing = (props) => {
         <div className="column is-half-tablet">
           <img src={data.image} />
 
-          <Rating className="rating" />
+          {/* <Rating className="rating" /> */}
         </div>
 
         <CommentForm 

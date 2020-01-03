@@ -54,7 +54,7 @@ const RegisterUser = (props) => {
         <input
           onChange={(e) => handleChange(e)}
           type="text"
-          // required={true}
+          required={true}
           name="email"
           className="input"
         />

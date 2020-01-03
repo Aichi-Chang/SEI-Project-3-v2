@@ -1,39 +1,22 @@
 import React from 'react'
-import axios from 'axios'
+import UseAxios from '../commonComponents/UseAxios'
 
-import CurrentCards from './currentCards'
+import CurrentCard from './currentCard'
 
-class CurrentListing extends React.Component {
 
-  constructor() {
-    super()
-    this.state = {
-      currents: []
-    }
-  }
-
-  componentDidMount() {
-    axios.get('/api/currents')
-      .then(res => this.setState({ currents: res.data }))
-      .catch(err => console.log(err))
-  }
-
-  render() {
-    console.log(this.state.currents)
-    return <div className="section">
-      <h1 className="titleOne">What's Current?</h1>
-      <h2 className="titleTwo"> Our Head of Current, Sarah, tells us..</h2>
-      <div className="container">
-        <div className="titleThree">
-          <div className="columns is-mobile is-multiline">
-            {this.state.currents.map((current, i) => {
-              return <CurrentCards key={i} current={current} />
-            })}
-          </div>
-        </div>
-      </div>
+const CurrentListing = () => {
+  const data = UseAxios('/api/currents')
+  return ( 
+    <div className='flex flex-wrap justify-around mr6 ml6 mb5'>
+      <h1 className="helvetica b f1 ml3 mt6 mb5 tc w-100">Current top tips</h1>
+      {data.map((current, index) => {
+        return <CurrentCard key={index} article={current} />
+      })}
     </div>
-  }
+
+
+  )
 }
+
 
 export default CurrentListing

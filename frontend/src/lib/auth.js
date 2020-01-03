@@ -27,7 +27,6 @@ class Auth {
 
   static isAuthenticated() {
     const payload = this.getPayload()
-    // why do we need to know if we are logged in???
     const now = Math.round(Date.now() / 1000)
     return payload && now < payload.exp
   }
@@ -36,6 +35,12 @@ class Auth {
   static logOut() {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+  }
+
+
+  static isCurrentUser(user) {
+    const payload = this.getPayload()
+    return payload && user._id === payload.sub
   }
 
 

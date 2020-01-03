@@ -21,19 +21,15 @@ class CultureBooks extends React.Component {
   }
 
   render() {
-    console.log(this.state.cultureBData)
-    return <div className="section">
-      <h1 className="titleOne">After a good read?</h1>
-      <h2 className="titleTwo"> Our Head of Culture, Sonia, shares her must-reads..</h2>
-      <div className="container">
-        <div className="columns is-mobile is-multiline">
-          {this.state.cultureBData.map((book, i) => {
-            return <BookCards key={i} book={book}/>
-          })}
-        </div>
-      </div>
+    return <div className='flex flex-wrap justify-around mr6 ml6 mb5'>
+      <h1 className="helvetica b f1 ml3 mt6 mb5 tc w-100">After a good read?</h1>
+      {this.state.cultureBData.map((book, i) => {
+        return <BookCards key={i} book={book}/>
+      })}
     </div>
+
   }
 }
+
 
 export default CultureBooks

@@ -11,7 +11,6 @@ import CultureBooks from './components2.0/culture/cultureBooks'
 import CultureSingleBooks from './components2.0/culture/cultureSingleBooks'
 import CultureMusic  from './components2.0/culture/cultureMusic'
 import CultureSingleMusic from './components2.0/culture/cultureSingleMusic'
-import ClothesListing from './components2.0/clothing/Index'
 
 //community
 import CommunityListing from './components2.0/community/Index'
@@ -23,8 +22,11 @@ import CurrentSingle from './components2.0/current/currentSingle'
 
 //clothing
 import SingleClothing from './components2.0/clothing/Show'
+import ClothesListing from './components2.0/clothing/Index'
+
 import RegisterUser from './components2.0/user/RegisterUser'
 import LoginUser from './components2.0/user/LogingUser'
+import Dashboard from './components2.0/user/Dashboard'
 
 import BottomNav from './components2.0/commonComponents/BottomNav' 
 
@@ -41,8 +43,10 @@ const App = () => {
 
     <Switch>
       <Route exact path= '/' component={Home} />    
+
       <Route exact path= '/clothing' component={ClothesListing} />
       <Route exact path= '/clothing/:id' component={SingleClothing} /> 
+
       <Route exact path= '/communities' component={CommunityListing} />
       <Route exact path= '/communities/:id' component={SingleCommunity} />
 
@@ -55,8 +59,10 @@ const App = () => {
       <Route path="/culture-books" component={CultureBooks} />
       <Route path="/culture-music/:id" component={CultureSingleMusic} />
       <Route path="/culture-music" component={CultureMusic} />
+
       <Route path="/register" component={RegisterUser} />
       <Route path="/login" component={LoginUser} />
+      <Route path='/dashboard/:id' component={Dashboard}/>
     </Switch>
 
 

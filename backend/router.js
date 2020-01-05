@@ -43,7 +43,8 @@ router.route('/communities')
 router.route('/communities/:id')
   .get(communityFunc.show)
   // .post(secureRoute, communityFunc.createLikes)
-
+  .put(secureRoute, userFunc.updateLikes)
+  .delete(secureRoute, userFunc.removeLikes)
 
 // router.route('/communities/:id/:likeId')  
 //   .delete(secureRoute, communityFunc.removeLikes)
@@ -145,6 +146,9 @@ router.route('/login')
 router.route('/dashboard/:userId')
   .get(secureRoute, userFunc.retrieveLikes)
   .put(secureRoute, userFunc.updateLikes)
+
+router.route('/dashboard/:userId/:articleId')  
+  .delete(secureRoute, userFunc.removeLikes)
 
 
 

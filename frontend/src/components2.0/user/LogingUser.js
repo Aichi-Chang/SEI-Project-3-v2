@@ -28,13 +28,14 @@ const Login = (props) => {
       .then(res => {
         Auth.setToken(res.data.token)
         Auth.setUser(res.data.user)
-        // console.log(res.data.token)
+        // console.log(res.data.user)
         // console.log(Auth.getUser())
         props.history.push('/')
       })
       .catch(err => setErrors({ ...errors, errors: err.data }))
   }
 
+  
 
 
   return <div className="flex flex-column items-center justify-center bg-near-white vh-100">

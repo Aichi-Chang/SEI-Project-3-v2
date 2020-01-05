@@ -13,6 +13,9 @@ import CommentForm from '../commonComponents/CommentForm'
 
 const SingleCommunity = (props) => {
   const [data, setData] = useState({ comments: [] })
+  const [user, setUser] = useState()
+
+  
 
 
   useEffect(() => {
@@ -23,6 +26,7 @@ const SingleCommunity = (props) => {
   }, [])
 
 
+
   function handleDelete(e) {
     axios.delete(`/api/communities/${props.match.params.id}/comments/${e.target.id}`, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
@@ -30,6 +34,30 @@ const SingleCommunity = (props) => {
       .then(res => setData(res.data)) 
   }
 
+  function handleLikes() {
+    const token = Auth.getToken()
+    const currentUser = Auth.getUser()
+    setUser(currentUser)
+
+    if (!user) return null
+    const articleId = data
+    // console.log(articleId)
+
+    const likes = user.likes
+    likes.push(articleId)
+    // console.log(user)
+
+    axios.put(`/api/dashboard/${currentUser}`, { likes: likes }, { headers: { 'Authorization': `Bearer ${token}` } })
+      .then(console.log(user))
+      .catch(err => console.log(err))
+  }
+
+  // canModify() {
+  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
+  // }
+
+  // console.log(data._id)
+  // console.log(user)
 
   
   return <div>
@@ -40,7 +68,8 @@ const SingleCommunity = (props) => {
       <div className='w-50-l mb5 pr4'>
         <p className='f4 mb4'>{data.text}</p>
         <a href={data.website} className='grow gold f5 mb6-m' target='blank'>Check out the website ▹ ▹ ▹</a>
-        {/* <Rating className='' /> */}
+        <br/>
+        <button className='pointer pa2 washed-green bg-dark-gray grow br2 mb2' onClick={(e) => handleLikes(e)}>like</button>
       </div>
 
       <div className='w-50-l mb5'>

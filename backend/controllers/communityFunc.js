@@ -66,7 +66,7 @@ function createComment(req, res) {
     .findById(req.params.id)
     .populate('comment.user')
     .then(community => {
-      if (!community) return res.status(404).json({ message: 'Item Not Found' })
+      if (!community) return res.status(404).json({ message: 'Article Not Found' })
       
       community.comments.push(req.body)
       
@@ -84,11 +84,11 @@ function removeComment(req, res, next) {
   Community
     .findById(req.params.id)
     .then(community => {
-      if (!community) return res.status(404).json({ message: 'Item Not Found' })
+      if (!community) return res.status(404).json({ message: 'Article Not Found' })
       
       const commentById = community.comments.id(req.params.commentId)
-      commentById.remove()
-      // res.status(200).json({ message: 'Comment Deleted' }) 
+      res.status(200).json(commentById)
+      commentById.remove() 
       return community.save()
     })
     .then(community =>  Community.populate(community, 'user comments.user'))

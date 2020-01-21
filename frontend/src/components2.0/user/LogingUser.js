@@ -22,7 +22,7 @@ const Login = (props) => {
   }
 
   function handleSubmit(e) {
-    e.persist()
+    // e.persist()
     e.preventDefault()
     axios.post('/api/login', data)
       .then(res => {

@@ -15,7 +15,7 @@ const SingleClothing = (props) => {
   useEffect(() => {
     fetch(`/api/clothing/${props.match.params.id}`)
       .then(res => res.json())
-      .then(res => setData(res))
+      .then(res => setData(res.data))
   },[])
 
 

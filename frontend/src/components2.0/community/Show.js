@@ -38,19 +38,22 @@ const SingleCommunity = (props) => {
     const token = Auth.getToken()
     const currentUser = Auth.getUser()
     setUser(currentUser)
+    console.log(user)
 
-    if (!user) return null
     const articleId = data
-    // console.log(articleId)
 
-    const likes = user.likes
-    likes.push(articleId)
-    // console.log(user)
-
-    axios.put(`/api/dashboard/${currentUser}`, { likes: likes }, { headers: { 'Authorization': `Bearer ${token}` } })
-      .then(console.log(user))
+    const likes = setUser({ likes: articleId })
+    
+    // const user = { ...currentUser, likes }
+    
+    axios.put(`/api/dashboard/${currentUser.id}`, user, { headers: { 'Authorization': `Bearer ${token}` } })
+    //  return console.log(currentUser.id)
+      .then(setUser({ ...currentUser, likes }))
       .catch(err => console.log(err))
+
+    console.log('hey')
   }
+  
 
   // canModify() {
   //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id

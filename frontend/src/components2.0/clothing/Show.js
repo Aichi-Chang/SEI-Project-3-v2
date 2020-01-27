@@ -45,7 +45,7 @@ const SingleClothing = (props) => {
 
     <div className='mr6 ml6'>
       <CommentForm 
-        url={`/api/communities/${props.match.params.id}/comments`}
+        url={`/api/clothing/${props.match.params.id}/comments`}
         updateData={setData}
         data={data}
       />

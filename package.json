@@ -51,18 +51,19 @@
     "seed": "node backend/db/clothingSeeds.js; node backend/db/commuSeeds.js; node backend/db/cultureSeeds.js; node backend/db/currentSeeds.js",
     "serve:back": "nodemon backend/app.js",
     "serve:front": "webpack-dev-server --mode-development",
+    "serve": "webpack-dev-server --mode=development",
     "eject": "react-scripts eject",
     "build": "webpack -p",
     "start": "node backend/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aichi-Chang/The-Vault.git"
+    "url": "git+https://github.com/Aichi-Chang/project-3.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Aichi-Chang/The-Vault/issues"
+    "url": "https://github.com/Aichi-Chang/project-3/issues"
   },
-  "homepage": "https://github.com/Aichi-Chang/The-Vault#readme"
+  "homepage": "https://github.com/Aichi-Chang/project-3#readme"
 }

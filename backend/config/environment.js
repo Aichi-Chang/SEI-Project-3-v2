@@ -1,5 +1,5 @@
 // Global environment variables we need in our server
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 4000
 // const dbURIPrefix = 'mongodb://localhost/'
 // const dbName = 'the-vault'
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/the-vault'

@@ -15,7 +15,7 @@ const SingleClothing = (props) => {
   useEffect(() => {
     fetch(`/api/clothing/${props.match.params.id}`)
       .then(res => res.json())
-      .then(res => setData(res.data))
+      .then(res => setData(res))
   },[])
 
 
@@ -26,6 +26,7 @@ const SingleClothing = (props) => {
       .then(res => setData(res.data)) 
   }
 
+
  
   return <div>
     <div className='flex flex-wrap justify-around mr6 ml6'>
@@ -35,7 +36,6 @@ const SingleClothing = (props) => {
       <div className='w-50-l mb5 pr4'>
         <p className='f3 mb2 dark-blue'>{data.department}</p>
         <p className='f4 mb4'>{data.text}</p>
-        {/* <Rating className='' /> */}
       </div>
 
       <div className='w-50-l mb5'>

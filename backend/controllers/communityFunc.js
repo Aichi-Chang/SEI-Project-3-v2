@@ -80,20 +80,19 @@ function createComment(req, res) {
 
 
 //DELETE comment
-function removeComment(req, res, next) {
+function removeComment(req, res) {
   Community
     .findById(req.params.id)
     .then(community => {
       if (!community) return res.status(404).json({ message: 'Article Not Found' })
       
       const commentById = community.comments.id(req.params.commentId)
-      res.status(200).json(commentById)
       commentById.remove() 
       return community.save()
     })
     .then(community =>  Community.populate(community, 'user comments.user'))
     .then(community => res.json(community))
-    .catch(next)
+    .catch(err => console.log(err))
 }
 
 

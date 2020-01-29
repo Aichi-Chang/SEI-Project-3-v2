@@ -13,7 +13,7 @@ import CommentForm from '../commonComponents/CommentForm'
 
 const SingleCommunity = (props) => {
   const [data, setData] = useState({ comments: [] })
-  const [user, setUser] = useState()
+  // const [user, setUser] = useState()
 
   
 
@@ -34,33 +34,26 @@ const SingleCommunity = (props) => {
       .then(res => setData(res.data)) 
   }
 
-  function handleLikes() {
-    const token = Auth.getToken()
-    const currentUser = Auth.getUser()
-    setUser(currentUser)
-    console.log(user)
+  // function handleLikes() {
+  //   const token = Auth.getToken()
+  //   const currentUser = Auth.getUser()
+  //   setUser(currentUser)
+  //   console.log(user)
 
-    const articleId = data
+  //   const articleId = data
 
-    const likes = setUser({ likes: articleId })
+  //   const likes = setUser({ likes: articleId })
     
-    // const user = { ...currentUser, likes }
+  //   // const user = { ...currentUser, likes }
     
-    axios.put(`/api/dashboard/${currentUser.id}`, user, { headers: { 'Authorization': `Bearer ${token}` } })
-    //  return console.log(currentUser.id)
-      .then(setUser({ ...currentUser, likes }))
-      .catch(err => console.log(err))
+  //   axios.put(`/api/dashboard/${currentUser.id}`, user, { headers: { 'Authorization': `Bearer ${token}` } })
+  //   //  return console.log(currentUser.id)
+  //     .then(setUser({ ...currentUser, likes }))
+  //     .catch(err => console.log(err))
 
-    console.log('hey')
-  }
-  
-
-  // canModify() {
-  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
+  //   console.log('hey')
   // }
 
-  // console.log(data._id)
-  // console.log(user)
 
   
   return <div>

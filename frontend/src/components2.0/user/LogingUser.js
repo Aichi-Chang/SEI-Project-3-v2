@@ -31,6 +31,7 @@ const Login = (props) => {
         // console.log(res.data.user)
         // console.log(Auth.getUser())
         props.history.push('/')
+        window.location.reload()
       })
       .catch(err => setErrors({ ...errors, errors: err.data }))
   }

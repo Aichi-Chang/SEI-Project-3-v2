@@ -15,7 +15,7 @@
     "file-loader": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "mapbox-gl": "^1.6.0",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "mongoose": "^5.7.12",
     "mongoose-unique-validator": "^2.0.3",
     "react": "^16.12.0",
